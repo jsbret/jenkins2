@@ -1,0 +1,12 @@
+pipeline {
+    agent master
+    stages {
+        stage('Test') {
+            steps {
+                docker.image('cassandra') { c ->
+       			 sh 'sleep 10'
+   		 }
+            }
+        }
+    }
+}
