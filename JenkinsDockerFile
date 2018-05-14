@@ -6,6 +6,8 @@ pipeline {
         stage('Test') {
             steps {
                 sh 'cqlsh --version'
+                sh 'java --version'
+                sh 'mvn --version'
             }
         }
     }

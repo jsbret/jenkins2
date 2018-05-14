@@ -1,11 +1,14 @@
 pipeline {
-    agent master
+    agent any
     stages {
         stage('Test') {
             steps {
-                docker.image('cassandra') { c ->
-       			 sh 'sleep 10'
-   		 }
+		script{
+               		docker.image('cassandra').withRun('-p 9042:9042') { c ->
+       				 	sh 'sleep 10'
+					sh './Users/jsbret/Documents/devel/programs/apache-cassandra-3.10/bin/cqlsh --version'
+			}				
+		}
             }
         }
     }
