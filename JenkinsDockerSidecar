@@ -6,6 +6,7 @@ pipeline {
 		script{
                		docker.image('cassandra').withRun('-p 9042:9042') { c ->
        				sh 'sleep 10'
+				sh 'pwd'
 				sh './Users/jsbret/Documents/devel/programs/dse-6.0.4/bin/cqlsh -e SELECT * FROM system.peers'
 			}
 			
