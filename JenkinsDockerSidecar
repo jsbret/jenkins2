@@ -5,10 +5,10 @@ pipeline {
             steps {
 		script{
                		docker.image('cassandra').withRun('-p 9042:9042') { c ->
-       				 	sh 'sleep 10'
-					
+       				sh 'sleep 10'
+				sh './Users/jsbret/Documents/devel/programs/dse-6.0.4/bin/cqlsh -e SELECT * FROM system.peers'
 			}
-			sh './Users/jsbret/Documents/devel/programs/apache-cassandra-3.10/bin/cqlsh --version'
+			
 			sh 'java -version'
 		}
             }
